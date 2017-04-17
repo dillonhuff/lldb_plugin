@@ -92,10 +92,10 @@ def printFunction( name ):
 
 if __name__ == "__main__":
 #def cmd():
-    import sys
-    newArgv = glutInit(sys.argv)
+    #import sys
+    newArgv = glutInit("") #sys.argv)
 
-    print 'newArguments', newArgv
+    # print 'newArguments', newArgv
 
     glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB )
     glutInitWindowSize(250, 250)
@@ -123,4 +123,4 @@ if __name__ == "__main__":
     glutIdleFunc( idle )
     glutMainLoop()
 
-cmd()
+#cmd()
