@@ -6,7 +6,6 @@ import time
 
 import sys
 
-import lldb
 import commands
 import optparse
 import shlex
@@ -152,6 +151,5 @@ def my_cmd(debugger, command, result, internal_dict):
     #         for var in vars:
     #             print var
 
-def __lldb_init_module(debugger, internal_dict):
-    debugger.HandleCommand('command script add -f gl_command.my_cmd my_cmd')
-    print 'The "my_cmd" python command has been installed and is ready for use.'
+
+my_cmd(1, 1, 1, 1)

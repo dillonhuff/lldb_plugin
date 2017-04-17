@@ -3,14 +3,6 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 import time
-
-import sys
-
-import lldb
-import commands
-import optparse
-import shlex
-
 start = time.time()
 
 window = None
@@ -96,7 +88,15 @@ def printFunction( name ):
         print '%s -> %s'%(name, ", ".join( [str(a) for a in args ]))
     return onevent
 
-def my_cmd(debugger, command, result, internal_dict):
+
+
+if __name__ == "__main__":
+#def cmd():
+    import sys
+    newArgv = glutInit(sys.argv)
+
+    print 'newArguments', newArgv
+
     glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB )
     glutInitWindowSize(250, 250)
     glutInitWindowPosition(100, 100)
@@ -123,35 +123,4 @@ def my_cmd(debugger, command, result, internal_dict):
     glutIdleFunc( idle )
     glutMainLoop()
 
-
-    # target = debugger.GetSelectedTarget()
-    # process = target.GetProcess()
-    # thread = process.GetSelectedThread()
-
-    # for frame in thread:
-
-    #     print str(frame)
-
-    #     function = frame.GetFunction()
-    #     print 'FUNCTION = ', function
-
-    #     if frame.IsInlined():
-    #         print 'INLINED'
-    #     else:
-    #         args = frame.get_arguments()
-
-    #         print '# of arguments = ', len(args)
-
-    #         for arg in args:
-    #             print arg
-
-    #         vars = frame.get_all_variables()
-
-    #         print '# of vars =', len(args)
-
-    #         for var in vars:
-    #             print var
-
-def __lldb_init_module(debugger, internal_dict):
-    debugger.HandleCommand('command script add -f gl_command.my_cmd my_cmd')
-    print 'The "my_cmd" python command has been installed and is ready for use.'
+cmd()
