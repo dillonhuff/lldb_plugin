@@ -26,18 +26,19 @@ def reshape( *args ):
     display()
 
 if __name__ == "__main__":
-
-    newArgv = glutInit("")
+#def cmd():
+    newArgv = glutInit(b"")
 
     glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB )
     glutInitWindowSize(250, 250)
     glutInitWindowPosition(100, 100)
 
-    window = glutCreateWindow("hello")
+    window = glutCreateWindow(b"hello")
 
     glutDisplayFunc(display)
     glutReshapeFunc(reshape)
 
     glutMainLoop()
 
-#cmd()
+# if __name__ == "__main__":
+#     cmd()
